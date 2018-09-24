@@ -1,0 +1,23 @@
+{
+  "name": "interactive-cv",
+  "version": "1.0.0",
+  "description": "An Interactive CV",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anarcroth/interactive-cv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anarcroth/interactive-cv/issues"
+  },
+  "homepage": "https://github.com/Anarcroth/interactive-cv#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  }
+}
