@@ -47,10 +47,11 @@ user.prototype.readDirs = function() {
     }
     lines = lines.filter(n => n);
 
-    this.github = this.find(lines, 'github');
-    this.basics = this.find(lines, 'basics');
-    this.mypic = this.find(lines, 'mypic');
-    this.username = this.find(lines, 'username');
+    // The equals sign indicates the right spot for the variable
+    this.github = this.find(lines, 'github = ');
+    this.basics = this.find(lines, 'basics = ');
+    this.mypic = this.find(lines, 'mypic = ');
+    this.username = this.find(lines, 'username = ');
     this.dirs = this.find(lines, 'sub_directories').split(' ');
     this.files = this.find(lines, 'files').split(' ');
 };

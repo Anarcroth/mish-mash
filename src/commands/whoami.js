@@ -13,7 +13,7 @@ let whoami = async function() {
     let reposText = await getBestRepos();
     reposText.forEach(r => output.push('<a href="' + r.html_url + '">' +
                                       r.name + '</a> ' +
-                                      r.stargazers_count + ' <i class="fas fa-star"></i> / ' +
+                                      r.stargazers_count + ' <i class="fas fa-star"></i> | ' +
                                       r.forks + ' <i class="fas fa-code-branch"></i>'));
     return output.join('<br>');
 };
