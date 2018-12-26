@@ -21,7 +21,7 @@ parser.prototype.parse = function(command) {
     case 'ls':
         return ls(params);
     case 'rm':
-        return c + ' is currently unsupported. Refer to <a href="https://github.com/users/Anarcroth/jayVFS">jayVFS</a> for a full implementation.';
+        return c + ' is currently unsupported. Refer to <a href="https://github.com/Anarcroth/jayVFS">jayVFS</a> for a full implementation.';
     case 'cd':
         return cd(params);
     case 'pwd':
@@ -36,11 +36,11 @@ parser.prototype.parse = function(command) {
     case 'help':
         return help(params);
     case 'mkdir':
-        return c + ' is currently unsupported. Refer to <a href="https://github.com/users/Anarcroth/jayVFS">jayVFS</a> for a full implementation.';
+        return c + ' is currently unsupported. Refer to <a href="https://github.com/Anarcroth/jayVFS">jayVFS</a> for a full implementation.';
     case 'rmdir':
-        return c + ' is currently unsupported. Refer to <a href="https://github.com/users/Anarcroth/jayVFS">jayVFS</a> for a full implementation.';
+        return c + ' is currently unsupported. Refer to <a href="https://github.com/Anarcroth/jayVFS">jayVFS</a> for a full implementation.';
     case 'touch':
-        return c + ' is currently unsupported. Refer to <a href="https://github.com/users/Anarcroth/jayVFS">jayVFS</a> for a full implementation.';
+        return c + ' is currently unsupported. Refer to <a href="https://github.com/Anarcroth/jayVFS">jayVFS</a> for a full implementation.';
     case 'whoami':
         return whoami();
     case '':
