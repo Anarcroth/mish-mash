@@ -8,13 +8,13 @@ let whoami = async function() {
     output.push(user.getTableInfo());
 
     let ghUrl = 'https://github.com/' + user.getGithub();
-    output.push('<a href="' + ghUrl + '">' + ' ' + user.getGithub() + '</a>');
+    output.push('<a href="' + ghUrl + '">' + '<i class="fab fa-github"></i> ' + user.getGithub() + '</a>');
 
     let reposText = await getBestRepos();
     reposText.forEach(r => output.push('<a href="' + r.html_url + '">' +
                                       r.name + '</a> ' +
-                                      r.stargazers_count + '  | ' +
-                                      r.forks + ' '));
+                                      r.stargazers_count + ' <i class="fas fa-star"></i> / ' +
+                                      r.forks + ' <i class="fas fa-code-branch"></i>'));
     return output.join('<br>');
 };
 
