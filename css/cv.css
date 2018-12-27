@@ -9,6 +9,7 @@ body {
 
 .glitch {
     min-height: 100vh;
+    overflow:hidden;
     background: #252926;
     color: #7cb4fc;
     font-family: Monaco, "Courier New", Courier, monospace;
@@ -53,32 +54,28 @@ textarea, input, input:focus {
         0px 0px 1px #da4747;
 }
 
-.container:after {
-    content: "";
-    width: 100%;
-    height: 20%;
-    position: absolute;
-    bottom: -15px;
-    left: 0;
+// Forces the contacts div to be on the bottom
+#terminal {
+    position: relative;
 }
 
-.console {
-    animation:
-        blur 200ms infinite;
+#contacts {
+    position: absolute;
+    bottom: 0;
+    left: 1;
 }
 
 .term {
-    position: fixed;
-    height: 850px;
-       border-radius: 50px;
+    position: relative;
+    height: 790px;
+    overflow: hidden;
+    border-radius: 50px;
     -webkit-filter: blur(0.3px);
     // This is the screen "panel"
     border-left: 20px solid #1b1b1b;
     border-right: 20px solid #1c1c1c;
     border-top: 25px solid #0f1310;
     border-bottom: 25px solid #0f1310;
-    overflow: hidden;
-    position: relative;
     color: #7cb4fc;
     padding: 1.5em 1.5em 1.5em 5em;
     box-shadow: inset 0 0 0 9px rgba(21,21,20,0.6),  0 1px 60px 10px rgba(40,46,40,9), inset 0 1px 80px 5px rgba(0,0,0,0.97);
@@ -92,19 +89,4 @@ table {
 th, td {
   padding: 15px;
   text-align: justify;
-}
-
-@keyframes blur {
-    0% {
-        filter: blur(0.001px);
-        opacity: 0.8;
-    }
-    50% {
-        filter: blur(0.001px);
-        opacity: 0.9;
-    }
-    100% {
-        filter: blur(0.001px);
-        opacity: 0.8;
-    }
 }
