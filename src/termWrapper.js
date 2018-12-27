@@ -3,23 +3,26 @@ let commHistoryIndex = -1;
 
 let lastResponse = {};
 let terminalInputHeight = 0;
-let container = document.getElementById('terminal-window');
+let cli = document.getElementById('cli');
+let contacts = document.getElementById('contacts');
+let terminal = document.getElementById('terminal');
+
+// Forces the console inputs to be at max height and not overlap with the contacts div
+cli.style.cssText = 'display: block; max-height: 700px; overflow: hidden;';
 
 function isCommandValid(command) {
     // This matches any non-word character
     let invalidCommandString = new RegExp('^[^A-Za-z_]');
     if (invalidCommandString.test(command)) {
         return false;
-    } else {
-        return true;
     }
+    return true;
 }
 
 function addOutput(message) {
     let output = document.createElement('p');
     output.innerHTML = message;
-    container.appendChild(output);
-
+    cli.appendChild(output);
     addInput();
 }
 
@@ -59,7 +62,7 @@ function makeNewInput() {
     input.type = 'text';
     input.id = 'termInput' + terminalInputHeight;
     input.name = 'termInput' + terminalInputHeight;
-    container.appendChild(input);
+    cli.appendChild(input);
     input.focus();
 
     terminalInputHeight += 1;
