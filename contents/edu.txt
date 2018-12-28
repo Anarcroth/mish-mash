@@ -3,25 +3,10 @@
 An active student in the Computer Science community and a Student Assistant in Data Structures and C++ courses.<br>
 <br>
 Courses Taken:<br>
-Finite Mathematics<br>
-Linear Algebra<br>
-Calculus I<br>
-Calculus II<br>
-Discrete Structures<br>
-C++<br>
-Visual Basic<br>
-Java<br>
-Advanced JavaScript<br>
-Fundamental Data Structures<br>
-Database Systems<br>
-Analysis and Design of Information Systems<br>
-Introduction to UNIX<br>
-Computer Architecture<br>
-Software Engineering<br>
-Data Mining<br>
-Tackling Software with Domain Driven Design<br>
-Object-Oriented Programming<br>
-Mobile Computing<br>
-DevOps<br>
-Web Server Technologies<br>
-Computer Networks<br>
+Finite Mathematics, Linear Algebra, Calculus I<br>
+Calculus II, Discrete Structures, C++<br>
+Visual Basic, Java, Advanced JavaScript<br>
+Fundamental Data Structures, Database Systems, Analysis and Design of Information Systems<br>
+Introduction to UNIX, Computer Architecture, Software Engineering<br>
+Data Mining, Tackling Software with Domain Driven Design, Object-Oriented Programming<br>
+Mobile Computing, DevOps, Web Server Technologies, Computer Networks<br>
