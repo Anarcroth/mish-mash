@@ -4,8 +4,6 @@ let commHistoryIndex = -1;
 let lastResponse = {};
 let terminalInputHeight = 0;
 let cli = document.getElementById('cli');
-let contacts = document.getElementById('contacts');
-let terminal = document.getElementById('terminal');
 
 // Forces the console inputs to be at max height and not overlap with the contacts div
 cli.style.cssText = 'display: block; max-height: 700px; overflow: hidden;';
@@ -42,7 +40,10 @@ function addInput() {
             } else {
                 addOutput('mishmash: command not recognized: ' + input.value);
             }
+
+            input.readOnly = true;
             input.removeEventListener('keydown', inputEnter);
+
         } else if (event.key === 'ArrowUp') { // goes forward in the list towards the first element
             input.value = parseCommandHistory();
             if (commHistoryIndex > 0) {
