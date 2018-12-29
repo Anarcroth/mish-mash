@@ -5,7 +5,7 @@ const logger = require('morgan');
 
 const parser = require('./src/parser');
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 let cparser = new parser();
 
