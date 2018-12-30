@@ -29,8 +29,8 @@ let getAbsPath = function(d) {
                 wd = ['/'];
                 wdStree = jvfs.getWdSubtree(wd);
             } else {
-                wd = wdStree.parentree.fullpath.slice();
-                wdStree = jvfs.getWdSubtree(wd);
+                wd = wdStree.parenttree.fullpath.slice();
+                wdStree = jvfs.getWdSubtree([...wd]); // This has to pass a copy since it looses a reference after the call is executed
             }
         } else {
             if (wdStree.subtrees.find(s => s.name === d[i])) {
@@ -40,6 +40,8 @@ let getAbsPath = function(d) {
             }
         }
     }
+    // This is in the case where there is nothing passed as a target.
+    // It should default to the root directory
     if (wd.length === 0) {
         wd.push('/');
     }
