@@ -35,10 +35,10 @@ let help = function(param) {
         return '<b>whoami</b><br>Print effective user and the associated data';
     default:
         return 'These are the commands that are available<br>'+
-            'ls       ' + 'cd        ' + 'pwd<br>' +
-            'cat      ' + 'date      ' + 'echo<br>' +
-            'mkdir    ' + 'rmdir     ' + 'touch<br>' +
-            'clear    ' + 'whoami    ' + 'help<br>';
+            '<pre>ls     cd      pwd\n' +
+                 'cat    date    echo\n' +
+                 'mkdir  rmdir   touch\n' +
+                 'clear  whoami  help</pre>';
     }
 };
 
