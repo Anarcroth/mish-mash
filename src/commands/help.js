@@ -4,19 +4,19 @@
 let help = function(param) {
     switch (param) {
     case 'ls':
-        return '<b>ls</b> [FILE]<br>List information about the FILEs (the current directory by default).<br>';
+        return '<b>ls</b> [./] [../] [DIR]<br>List information about the FILEs (the current directory by default).<br>Example: <b>ls .</b> | <b>ls projects</b>';
     case 'rm':
-        return '<b>rm</b> [FILE]<br>Removes specified file. By default, it does not remove directories.<br>';
+        return '<b>rm</b> [FILE]<br>Removes specified file. By default, it does not remove directories.<br>Example: <b>rm exp.txt</b>';
     case 'cp':
         return '<br><b>Not yet implemented</b>';
     case 'cd':
-        return '<b>cd</b> [DIRECTORY]<br>Change the working directory of the current shell execution environment.';
+        return '<b>cd</b> [./] [../] [DIRECTORY]<br>Change the working directory of the current shell execution environment.<br>Example: <b>cd education</b>';
     case 'mv':
         return '<br><b>Not yet implemented</b>';
     case 'pwd':
         return '<b>pwd</b><br>Print the name of current working directory';
     case 'cat':
-        return '<b>cat</b> [FILE]<br>Concatenate FILE(s) to standard output.';
+        return '<b>cat</b> [FILE]<br>Concatenate FILE(s) to standard output.<br>Example: <b>cat ach.txt</b>';
     case 'date':
         return '<b>date</b><br>Display the current time.';
     case 'echo':
@@ -38,7 +38,8 @@ let help = function(param) {
             '<pre>ls     cd      pwd\n' +
                  'cat    date    echo\n' +
                  'mkdir  rmdir   touch\n' +
-                 'clear  whoami  help</pre>';
+                 'clear  whoami  help</pre><br>' +
+	         'Type <i>help [COMMAND]</i> for more details.';
     }
 };
 
