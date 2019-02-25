@@ -102,8 +102,10 @@ jayVFS.prototype.getDirContents = function(dir) {
     if (dir !== this.wd) {
         movedToDir = this.resolve(dir);
     }
-    movedToDir.subtrees.forEach(d => lsContents.push(d.name));
-    movedToDir.inodes.forEach(i => lsContents.push(i.name));
+    // Adds current and parent dir to the output, together with dir and file access rights for more realism
+    lsContents.push('drwxr-xr-r mish-mash mish-mash . <br> drwxr-xr-r mish-mash mish-mash ..');
+    movedToDir.subtrees.forEach(d => lsContents.push('drwxr-xr-r mish-mash mish-mash ' + d.name));
+    movedToDir.inodes.forEach(i => lsContents.push('-rw-r--r-- mish-mash mish-mash ' + i.name));
 
     return lsContents.filter(n => n);
 };
