@@ -59,6 +59,7 @@ function addInput() {
 }
 
 function makeNewInput() {
+    addPrompt();
     let input = document.createElement('input');
     input.type = 'text';
     input.id = 'termInput' + terminalInputHeight;
@@ -69,6 +70,12 @@ function makeNewInput() {
     terminalInputHeight += 1;
 
     return input;
+}
+
+function addPrompt() {
+    let prompt = document.createElement('label');
+    prompt.innerHTML = '~ <i class="fas fa-dollar-sign"></i> ';
+    cli.appendChild(prompt);
 }
 
 // TODO don't use a global to grab the last response
