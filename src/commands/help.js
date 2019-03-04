@@ -34,12 +34,12 @@ let help = function(param) {
     case 'whoami':
         return '<b>whoami</b><br>Print effective user and the associated data';
     default:
-        return 'These are the commands that are available<br>'+
+        return 'These are the commands that are available. For instance, <cd DIR_NAME> will move you to that directory!<br>'+
             '<pre>ls     cd      pwd\n' +
                  'cat    date    echo\n' +
                  'mkdir  rmdir   touch\n' +
                  'clear  whoami  help</pre><br>' +
-	         'Type <i>help [COMMAND]</i> for more details.';
+	         'Type <i>help [COMMAND]</i> for more details on what it does!';
     }
 };
 
