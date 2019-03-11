@@ -8,3 +8,5 @@ A mini DOS-like game, that tests your typing speed.<br>
 <b>Open Cpp Tutorials</b><br>
 As a part of the Student Assistant job, these are a set of slides, aimed to tell more advanced topics for students in C++ courses.<br>
 <a href="https://github.com/Anarcroth/cpp-tutorials">https://github.com/Anarcroth/cpp-tutorials</a><br>
+<br>
+<a href="https://anarcroth.github.io/presentations/">Presentations <i class="far fa-file-powerpoint"></i></a><br>
