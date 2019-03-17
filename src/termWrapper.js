@@ -33,7 +33,10 @@ function addInput() {
             if (isCommandValid(input.value)) {
                 if (input.value === 'clear') {
                     window.location.reload();
-                } else {
+                } else if (input.value === 'cv') {
+		    window.open('../contents/cv.pdf');
+		    addOutput(""); // makes sure to get next output
+		} else {
                     lastResponse = Promise.all([getPostResponse(input.value)]);
                     lastResponse.then(addOutput);
                 }
