@@ -66,7 +66,7 @@ user.prototype.find = function(lines, str) {
 };
 
 user.prototype.getTableInfo = function() {
-    let htmlPic = '<img src="' + this.mypic + '" width="200" height="260">';
+    let htmlPic = '<img src="' + this.mypic + '" width="255" height="360">';
     let table = '<table><tr><td align="left">' + htmlPic + '</td><td align="justify"><i>' + this.username + '</i><br>---------------<p>' +  this.basics + '</p></td></tr></table>';
     return table;
 };
