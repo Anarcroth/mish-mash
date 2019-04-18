@@ -84,7 +84,7 @@ let partition = function(a, low, high) {
     let pivot = a[low]['stargazers_count'];
     let i = low;
     for (let j = low; j < high - 1; j++) {
-        if (a[j]['stargazers_count'] < pivot) {
+        if (a[j]['stargazers_count'] <= pivot) {
             if (i !== j) {
                 let temp = a[i];
                 a[i] = a[j];
