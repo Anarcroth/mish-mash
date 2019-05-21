@@ -5,6 +5,8 @@ let lastResponse = {};
 let terminalInputHeight = 0;
 let cli = document.getElementById('cli');
 
+let socket = io.connect();
+
 // Forces the console inputs to be at max height and not overlap with the contacts div
 cli.style.cssText = 'display: block; max-height: 700px; overflow: hidden;';
 
@@ -37,8 +39,10 @@ function addInput() {
 		    window.open('../contents/cv.pdf');
 		    addOutput(""); // makes sure to get next output
 		} else {
-                    lastResponse = Promise.all([getPostResponse(input.value)]);
-                    lastResponse.then(addOutput);
+		    socket.emit('termInput', input.value);
+		    socket.on('termInput', function(m) {
+			addOutput(m);
+		    });
                 }
             } else {
                 addOutput('mishmash: command not recognized: ' + input.value);

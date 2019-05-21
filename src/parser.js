@@ -13,21 +13,21 @@ let parser = function() {
     this.commandsDir = './src/commands/';
 };
 
-parser.prototype.parse = function(command) {
+parser.prototype.parse = function(command, client) {
     let commandAndParams = command.split(' ');
     let c = commandAndParams[0];
     let params = commandAndParams[1];
     switch (c) {
     case 'ls':
-        return ls(params);
+        return ls(params, client);
     case 'rm':
         return c + ' is currently unsupported. Refer to <a href="https://github.com/Anarcroth/jayVFS">jayVFS</a> for a full implementation.';
     case 'cd':
-        return cd(params);
+        return cd(params, client);
     case 'pwd':
-        return pwd();
+        return pwd(client);
     case 'cat':
-        return cat(params);
+        return cat(params, client);
     case 'date':
         return date();
     case 'echo':

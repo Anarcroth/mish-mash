@@ -1,6 +1,7 @@
 const user = require('../src/user');
 const mTree = require('../src/mtree');
 
+//TODO add doc strings
 var jayVFS = function() {
     this.user = user;
     this.mtree = new mTree('root');
@@ -68,7 +69,7 @@ jayVFS.prototype.moveWdTo = function(dir) {
     if (dir === '/') {
         this.wd = this.mtree;
     } else if (dir === '.' || dir === './') {
-        // Do nothing.
+	// do nothing
     } else {
         try {
             this.wd = this.resolve(dir);
@@ -87,6 +88,10 @@ jayVFS.prototype.getWd = function() {
     return this.wd;
 };
 
+jayVFS.prototype.setWd = function(thatWd) {
+    this.wd = thatWd;
+};
+
 jayVFS.prototype.getWdSubtree = function(dir) {
     if (dir[0] === '/' && dir.length === 1) {
         return this.mtree;
@@ -100,7 +105,7 @@ jayVFS.prototype.getDirContents = function(dir) {
     let movedToDir = dir;
     // There are cases where the working directory is root and sometimes it's not, so this comparison checks if
     if (dir !== this.wd) {
-        movedToDir = this.resolve(dir);
+	movedToDir = this.resolve(dir);
     }
     // Adds current and parent dir to the output, together with dir and file access rights for more realism
     lsContents.push('drwxr-xr-r mish-mash mish-mash . <br> drwxr-xr-r mish-mash mish-mash ..');
@@ -167,4 +172,6 @@ jayVFS.prototype.getAbsPath = function(d) {
     return wdStree;
 };
 
-module.exports = new jayVFS();
+let j = new jayVFS();
+
+module.exports = j;
