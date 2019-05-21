@@ -21,11 +21,11 @@ let user = function() {
 };
 
 user.prototype.init = function() {
-    this.readDirs();
-    this.readFiles();
+    this.parseDirs();
+    this.parseFiles();
 };
 
-user.prototype.readFiles = function() {
+user.prototype.parseFiles = function() {
     let dirContents = fs.readdirSync(this.contentsPath, 'utf8');
     for (let f = 0; f < dirContents.length; f++) {
         for (let fc = 0; fc < this.files.length; fc++) {
@@ -37,7 +37,7 @@ user.prototype.readFiles = function() {
     }
 };
 
-user.prototype.readDirs = function() {
+user.prototype.parseDirs = function() {
     let lines = fs.readFileSync(this.configPath, 'utf8', function(){}).split('\n');
     for (var line = 0; line < lines.length; line++) {
         if (lines[line].charAt(0) === '#') {

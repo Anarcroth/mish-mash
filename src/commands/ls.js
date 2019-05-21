@@ -2,15 +2,18 @@ const jvfs = require('../jvfs');
 
 /*
   Returns a list of strings, representing all of the sub-directories and files on the current directory.
- */
-let ls = function(paramDir) {
+*/
+let ls = function(paramDir, client) {
     if (!paramDir) {
-        paramDir = jvfs.getWd();
+	paramDir = client.getWd();
     }
     try {
-        return jvfs.getDirContents(paramDir).join('<br>');
+	jvfs.setWd(client.getWd());
+	let dc = jvfs.getDirContents(paramDir);
+	client.setWd(jvfs.getWd());
+	return dc.join('<br>');
     } catch (e) {
-        return 'ls: cannot access \'' + paramDir + '\': ' + e.message;
+	return 'ls: cannot access \'' + paramDir + '\': ' + e.message;
     }
 };
 

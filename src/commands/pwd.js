@@ -1,10 +1,10 @@
 const jvfs = require('../jvfs');
 
-let pwd = function() {
-    if (jvfs.getWd()[0] === '/') {
-        return jvfs.getWd().join('/');
+let pwd = function(client) {
+    if (client.getWd()[0] === '/') {
+	return client.getWd().join('/');
     } else {
-        return '/' + jvfs.getWd().fullpath.join('/');
+	return '/' + client.getWd().fullpath.join('/');
     }
 };
 
