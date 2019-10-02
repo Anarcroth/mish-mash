@@ -2,7 +2,7 @@ const jvfs = require('./jvfs');
 
 let clients = function() {
 
-    this.wd = jvfs.getWd();
+    this.wd = jvfs.getRoot();
 };
 
 clients.prototype.getWd = function () {
