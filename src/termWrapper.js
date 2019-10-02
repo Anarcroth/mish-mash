@@ -39,8 +39,10 @@ function addInput() {
 		    window.open('../contents/cv.pdf');
 		    addOutput(""); // makes sure to get next output
 		} else {
+		    console.log(socket);
 		    socket.emit('termInput', input.value);
 		    socket.on('termInput', function(m) {
+			console.log(typeof m);
 			addOutput(m);
 		    });
                 }
