@@ -26,6 +26,13 @@ function addOutput(message) {
     addInput();
 }
 
+function listen() {
+    socket.on('termInput', function(m) {
+	console.log(typeof m);
+	addOutput(m);
+    });
+}
+
 function addInput() {
     let input = makeNewInput();
     input.addEventListener('keydown', function inputEnter(event) {
@@ -41,10 +48,6 @@ function addInput() {
 		} else {
 		    console.log(socket);
 		    socket.emit('termInput', input.value);
-		    socket.on('termInput', function(m) {
-			console.log(typeof m);
-			addOutput(m);
-		    });
                 }
             } else {
                 addOutput('mishmash: command not recognized: ' + input.value);
@@ -110,3 +113,4 @@ function parseCommandHistory() {
 }
 
 addInput();
+listen();
