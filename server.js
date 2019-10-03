@@ -1,6 +1,5 @@
 // TODO add modern import statements
 const path = require('path');
-const logger = require('morgan');
 const express = require('express');
 
 const app = express();
@@ -12,7 +11,6 @@ const client = require('./src/clients');
 
 const port = process.env.PORT || 3000;
 
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '.')));
 app.use(express.static(path.join(__dirname, 'html')));
