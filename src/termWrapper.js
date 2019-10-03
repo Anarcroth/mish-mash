@@ -11,12 +11,9 @@ let socket = io.connect();
 cli.style.cssText = 'display: block; max-height: 700px; overflow: hidden;';
 
 function isCommandValid(command) {
-    // This matches any non-word character
-    let invalidCommandString = new RegExp('^[^A-Za-z_]');
-    if (invalidCommandString.test(command)) {
-        return false;
-    }
-    return true;
+    // matches any non-word character
+    let invalidCommandRegex = new RegExp('^[^A-Za-z_]');
+    return (invalidCommandRegex.test(command) ? false : true);
 }
 
 function addOutput(message) {
@@ -26,52 +23,74 @@ function addOutput(message) {
     addInput();
 }
 
-function listen() {
-    socket.on('termInput', function(m) {
-	console.log(typeof m);
-	addOutput(m);
-    });
+function termInputListener() {
+    socket.on('termInput', addOutput);
 }
 
 function addInput() {
     let input = makeNewInput();
     input.addEventListener('keydown', function inputEnter(event) {
         if (event.key === 'Enter') {
-            commHistory.push(input.value);
-            commHistoryIndex += 1;
-            if (isCommandValid(input.value)) {
-                if (input.value === 'clear') {
-                    window.location.reload();
-                } else if (input.value === 'cv') {
-		    window.open('../contents/cv.pdf');
-		    addOutput(""); // makes sure to get next output
-		} else {
-		    console.log(socket);
-		    socket.emit('termInput', input.value);
-                }
-            } else {
-                addOutput('mishmash: command not recognized: ' + input.value);
-            }
-
-            input.readOnly = true;
-            input.removeEventListener('keydown', inputEnter);
-
-        } else if (event.key === 'ArrowUp') { // goes forward in the list towards the first element
-            input.value = parseCommandHistory();
-            if (commHistoryIndex > 0) {
-                commHistoryIndex -= 1;
-            }
-        } else if (event.key === 'ArrowDown') { // goes back in the list towards the last element
-            input.value = parseCommandHistory();
-            if (commHistoryIndex < commHistory.length) {
-                commHistoryIndex += 1;
-            }
+	    handleUserInput(input);
+	    input.readOnly = true;
+	    input.removeEventListener('keydown', inputEnter);
+        } else if (event.key === 'ArrowUp') {
+	    goBackInCommandHistory(input);
+        } else if (event.key === 'ArrowDown') {
+	    goForwardInCommandHistory(input);
         }
     });
 }
 
+function handleUserInput(input) {
+    commHistory.push(input.value);
+    commHistoryIndex += 1;
+    if (isCommandValid(input.value)) {
+	handleValidCommand(input);
+    } else {
+        addOutput('mishmash: command not recognized: ' + input.value);
+    }
+}
+
+function handleValidCommand(input) {
+    if (input.value === 'clear') {
+        window.location.reload();
+    } else if (input.value === 'cv') {
+	openCV();
+    } else {
+	// this will connect to the server and the response will be
+	// handled by the 'termInputListener'
+	socket.emit('termInput', input.value);
+    }
+}
+
+function openCV() {
+    window.open('../contents/cv.pdf');
+    addOutput(""); // makes sure to get next output
+}
+
+function goForwardInCommandHistory(input) {
+    input.value = parseCommandHistory();
+    if (commHistoryIndex > 0) {
+        commHistoryIndex -= 1;
+    }
+}
+
+function goBackInCommandHistory(input) {
+    input.value = parseCommandHistory();
+    if (commHistoryIndex < commHistory.length) {
+        commHistoryIndex += 1;
+    }
+}
+
 function makeNewInput() {
-    addPrompt();
+    createPrompt();
+    let input = createInputElement();
+    terminalInputHeight += 1;
+    return input;
+}
+
+function createInputElement() {
     let input = document.createElement('input');
     input.type = 'text';
     input.id = 'termInput' + terminalInputHeight;
@@ -79,29 +98,13 @@ function makeNewInput() {
     cli.appendChild(input);
     input.focus();
 
-    terminalInputHeight += 1;
-
     return input;
 }
 
-function addPrompt() {
+function createPrompt() {
     let prompt = document.createElement('label');
     prompt.innerHTML = '~ <i class="fas fa-dollar-sign"></i> ';
     cli.appendChild(prompt);
-}
-
-// TODO don't use a global to grab the last response
-function getPostResponse(inputVal) {
-    var params = { command: inputVal };
-    return fetch('/', {
-        method : 'POST',
-        body: JSON.stringify(params),
-        headers: {
-            "Content-Type": 'application/json',
-        }
-    }).then(
-        response => response.text()
-    );
 }
 
 function parseCommandHistory() {
@@ -112,5 +115,8 @@ function parseCommandHistory() {
     }
 }
 
+// create an initial input
 addInput();
-listen();
+
+// create one listener for server responses
+termInputListener();
