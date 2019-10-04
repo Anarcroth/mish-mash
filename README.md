@@ -1,4 +1,4 @@
-# * mish-mash*
+# _ mish-mash_
 
 ![screenshot](./contents/screenshot.png)
 
@@ -10,20 +10,20 @@ A web shell, showing a virtual pseudo-terminal emulator with a command line inte
 
 Get source code
 
-``` bash
+```bash
 git clone https://github.com/Anarcroth/mish-mash.git
 ```
 
 Navigate in the project directory and run
 
-``` javascript
+```javascript
 npm install
 ```
 
 and then start the application on [localhost](localhost:3000)
 
-``` javascript
-node server.js
+```javascript
+npm start
 ```
 
 ## Setup
@@ -34,7 +34,7 @@ There is a `.conf` file that sets up what you want to show on the screen. The fi
 
 **NOTE:** I've messed with the `.conf` file so that I can use it personally. I think that it has a clear structure and there isn't any need for a sample file for now.
 
-There is also a directory called `contents`. In it are all of the *real* files that you want to be mapped to the specified files in `.conf`. They are read as plain text and can be seen on the screen when the application is run.
+There is also a directory called `contents`. In it are all of the _real_ files that you want to be mapped to the specified files in `.conf`. They are read as plain text and can be seen on the screen when the application is run.
 
 Here are the supported commands:
 
