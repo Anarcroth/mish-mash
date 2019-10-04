@@ -16,28 +16,31 @@ function isCommandValid(command) {
     return (invalidCommandRegex.test(command) ? false : true);
 }
 
-function addOutput(message) {
+function writeOutput(message) {
     let output = document.createElement('p');
     output.innerHTML = message;
     cli.appendChild(output);
-    addInput();
+    output.scrollIntoView();
 }
 
 function termInputListener() {
-    socket.on('termInput', addOutput);
+    socket.on('termInput', (message) => {
+        writeOutput(message);
+        addInput();
+    });
 }
 
 function addInput() {
     let input = makeNewInput();
     input.addEventListener('keydown', function inputEnter(event) {
         if (event.key === 'Enter') {
-	    handleUserInput(input);
-	    input.readOnly = true;
-	    input.removeEventListener('keydown', inputEnter);
+            handleUserInput(input);
+            input.readOnly = true;
+            input.removeEventListener('keydown', inputEnter);
         } else if (event.key === 'ArrowUp') {
-	    goBackInCommandHistory(input);
+            goBackInCommandHistory(input);
         } else if (event.key === 'ArrowDown') {
-	    goForwardInCommandHistory(input);
+            goForwardInCommandHistory(input);
         }
     });
 }
@@ -46,9 +49,10 @@ function handleUserInput(input) {
     commHistory.push(input.value);
     commHistoryIndex += 1;
     if (isCommandValid(input.value)) {
-	handleValidCommand(input);
+        handleValidCommand(input);
     } else {
-        addOutput('mishmash: command not recognized: ' + input.value);
+        writeOutput('mishmash: command not recognized: ' + input.value);
+        addInput();
     }
 }
 
@@ -56,17 +60,25 @@ function handleValidCommand(input) {
     if (input.value === 'clear') {
         window.location.reload();
     } else if (input.value === 'cv') {
-	openCV();
+        openCV();
+    } else if (input.value === 'exit') {
+        onExit();
     } else {
-	// this will connect to the server and the response will be
-	// handled by the 'termInputListener'
-	socket.emit('termInput', input.value);
+        // this will connect to the server and the response will be
+        // handled by the 'termInputListener'
+        socket.emit('termInput', input.value);
     }
 }
 
 function openCV() {
     window.open('../contents/cv.pdf');
-    addOutput(""); // makes sure to get next output
+    writeOutput(""); // makes sure to get next output
+    addInput();
+}
+
+function onExit() {
+    writeOutput("logout<br/>Ending session...<br/>...completed.<br/><br/>[Process completed]");
+    socket.close();
 }
 
 function goForwardInCommandHistory(input) {

@@ -44,6 +44,7 @@ Here are the supported commands:
 `cat` - Concatenates files and print on the standard output. \
 `date` - Prints or set the system date and time. \
 `echo` - Displays a line of text. \
+`exit` - Ends current session. \
 `help` - Prints help, or, if specified, prints a specific help listing of a command. \
 `clear` - Clears the screen from all text. \
 `whoami` - Prints out personal data for the owner of this CV.
