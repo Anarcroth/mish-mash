@@ -18,8 +18,6 @@
   "homepage": "https://github.com/Anarcroth/interactive-cv#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "express-session": "^1.16.2",
-    "morgan": "^1.9.1",
     "socket.io": "^2.2.0"
   }
 }
