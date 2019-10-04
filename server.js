@@ -1,4 +1,3 @@
-// TODO add modern import statements
 const path = require('path');
 const express = require('express');
 
@@ -59,6 +58,6 @@ async function handleTermInput(socket, command) {
     }
 }
 
-server.listen(3000, function() {
-    console.log('listening on 3000');
+server.listen(port, function() {
+    console.log('listening on ' + port);
 });
