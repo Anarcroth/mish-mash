@@ -26,31 +26,39 @@ app.get('/', function(request, response) {
 });
 
 io.on('connection', function(socket) {
-    console.log(socket);
+
+    console.log('user connected');
     handleUser(socket.id);
 
     socket.on('disconnect', function() {
-	console.log('user disconnected');
-	delete users[socket.id];
+	handleDisconnect(socket);
     });
 
-    socket.on('termInput', async function(command) {
-	try {
-            let r = await cparser.parse(command, users[socket.id]);
-	    socket.emit('termInput', r);
-	} catch (e) {
-	    socket.emit('termInput', e);
-	}
+    socket.on('termInput', function(command) {
+	handleTermInput(socket, command);
     });
 });
 
 function handleUser(socketid) {
     if (socketid in users == false) {
-	console.log(socketid);
 	users[socketid] = new client();
     }
 }
 
+function handleDisconnect(socket) {
+    console.log('user disconnected');
+    delete users[socket.id];
+}
+
+async function handleTermInput(socket, command) {
+    try {
+        let r = await cparser.parse(command, users[socket.id]);
+	socket.emit('termInput', r);
+    } catch (e) {
+	socket.emit('termInput', e);
+    }
+}
+
 server.listen(3000, function() {
-  console.log('listening on 3000');
+    console.log('listening on 3000');
 });
