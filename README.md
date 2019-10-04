@@ -1,5 +1,7 @@
 # * mish-mash*
 
+![screenshot](./contents/screenshot.png)
+
 A web shell, showing a virtual pseudo-terminal emulator with a command line interpreter, sitting on top of a virtual file system.
 
 [**mish-mash**](https://www.196flavors.com/bulgaria-mish-mash/) is a great way to present yourself. It can be a CV or a personal site.
