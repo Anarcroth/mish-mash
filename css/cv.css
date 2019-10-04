@@ -62,7 +62,7 @@ textarea, input, input:focus {
 #contacts {
     position: absolute;
     bottom: 0;
-    left: 1;
+    right: 55px;
 }
 
 .term {
