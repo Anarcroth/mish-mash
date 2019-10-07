@@ -21,6 +21,8 @@ let help = function(param) {
         return '<b>date</b><br>Display the current time.';
     case 'echo':
         return '<b>echo</b> [STRING]<br>Display a line of text.';
+    case 'exit':
+	return '<b>exit</b> <br>Close the current session.';
     case 'help':
         return '<b>help</b> [COMMAND]<br>Print the help of a command.';
     case 'mkdir':
@@ -38,7 +40,8 @@ let help = function(param) {
             '<pre>ls     cd      pwd\n' +
                  'cat    date    echo\n' +
                  'mkdir  rmdir   touch\n' +
-                 'clear  whoami  help</pre><br>' +
+                 'clear  whoami  exit\n' +
+	         'help</pre><br>' +
 	         'Type <i>help [COMMAND]</i> for more details on what it does!';
     }
 };
