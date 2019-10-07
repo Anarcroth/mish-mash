@@ -57,6 +57,9 @@ function handleValidCommand(input) {
         window.location.reload();
     } else if (input.value === 'cv') {
 	openCV();
+    } else if (input.value === 'exit') {
+	// redirect to the one true duck
+	window.location = "https://www.duckduckgo.com";
     } else {
 	// this will connect to the server and the response will be
 	// handled by the 'termInputListener'
