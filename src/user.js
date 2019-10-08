@@ -68,7 +68,7 @@ user.prototype.find = function(lines, str) {
 
 user.prototype.readBasicsFile = function(basics){
     return fs.readFileSync(path.resolve(__dirname, basics));
-}
+};
 
 user.prototype.getTableInfo = function() {
     let htmlPic = '<img src="' + this.mypic + '" width="255" height="360">';
