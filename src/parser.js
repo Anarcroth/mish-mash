@@ -46,7 +46,7 @@ parser.prototype.parse = function(command, client) {
     case '':
         return '';
     default:
-        throw Error('mishmash: command not found: ' + c);
+	return 'mishmash: command not found: ' + c;
     }
 };
 
