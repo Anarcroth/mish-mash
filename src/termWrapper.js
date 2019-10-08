@@ -10,12 +10,6 @@ let socket = io.connect();
 // Forces the console inputs to be at max height and not overlap with the contacts div
 cli.style.cssText = 'display: block; max-height: 700px; overflow: hidden;';
 
-function isCommandValid(command) {
-    // matches any non-word character
-    let invalidCommandRegex = new RegExp('^[^A-Za-z_]');
-    return (invalidCommandRegex.test(command) ? false : true);
-}
-
 function writeOutput(message) {
     let output = document.createElement('p');
     output.innerHTML = message;
@@ -48,12 +42,7 @@ function addInput() {
 function handleUserInput(input) {
     commHistory.push(input.value);
     commHistoryIndex += 1;
-    if (isCommandValid(input.value)) {
-        handleValidCommand(input);
-    } else {
-        writeOutput('mishmash: command not recognized: ' + input.value);
-        addInput();
-    }
+    handleValidCommand(input);
 }
 
 function handleValidCommand(input) {
