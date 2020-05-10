@@ -39,7 +39,7 @@ a:hover {
     height: 100&;
 }
 
-textarea, input, input:focus {
+textarea, input, input:focus, #booksButton {
     outline: none;
     border: none;
     // This is a test size, must be made relative to the screen width
@@ -87,6 +87,11 @@ table {
 }
 
 th, td {
-  padding: 15px;
-  text-align: justify;
+    padding: 15px;
+    text-align: justify;
+}
+
+#books th, td {
+    padding: 1px;
+    text-align: left;
 }
