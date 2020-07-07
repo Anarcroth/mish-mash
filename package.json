@@ -1,23 +1,36 @@
 {
-  "name": "interactive-cv",
+  "name": "@anarcroth/mish-mash",
   "version": "1.0.0",
   "description": "An Interactive CV",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Anarcroth/interactive-cv.git"
+    "url": "git+https://github.com/Anarcroth/mish-mash.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Martin Nestorov",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/Anarcroth/interactive-cv/issues"
+    "url": "https://github.com/Anarcroth/mish-mash/issues"
   },
-  "homepage": "https://github.com/Anarcroth/interactive-cv#readme",
+  "homepage": "https://github.com/Anarcroth/mish-mash#readme",
   "dependencies": {
     "express": "^4.16.4",
     "socket.io": "^2.2.0"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [
+    "cv",
+    "interactive-cv",
+    "js",
+    "node-js",
+    "node",
+    "personal-site",
+    "personal-page"
+  ]
 }
