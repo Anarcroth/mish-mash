@@ -71,8 +71,14 @@ user.prototype.readBasicsFile = function(basics){
 };
 
 user.prototype.getTableInfo = function() {
-    let htmlPic = '<img src="' + this.mypic + '" width="255" height="360">';
-    let table = '<table><tr><td align="left">' + htmlPic + '</td><td align="justify"><i>' + this.username + '</i><br>---------------<p>' +  this.readBasicsFile(this.basics) + '</p></td></tr></table>';
+    let htmlPic =
+	'<img src="' + this.mypic + '" width="255" height="360">' +
+	'<br><i>' + this.username + '</i>';
+    let table =
+	'<table><tr>' +
+	'<td align="left">' + htmlPic + '</td>' +
+	'<td>' + this.readBasicsFile(this.basics) + '</td>' +
+	'</tr></table>';
     return table;
 };
 
