@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Anarcroth/mish-mash#readme",
   "dependencies": {
+    "axios": "^0.20.0",
     "express": "^4.16.4",
     "socket.io": "^2.2.0"
   },
