@@ -83,6 +83,7 @@ textarea, input, input:focus, #booksButton {
 }
 
 #books th, td {
+    vertical-align: top;
     padding: 5px;
     text-align: left;
 }

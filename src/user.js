@@ -5,6 +5,9 @@ const readline = require('readline').createInterface({
 });
 const path = require('path');
 const https = require('https');
+const axios = require('axios');
+
+const repos = require('./repos.js');
 
 let user = function() {
     this.dirs = [];
@@ -70,16 +73,66 @@ user.prototype.readBasicsFile = function(basics){
     return fs.readFileSync(path.resolve(__dirname, basics));
 };
 
-user.prototype.getTableInfo = function() {
+user.prototype.getTableInfo = async function() {
     let htmlPic =
-	'<img src="' + this.mypic + '" width="255" height="360">' +
+	'<img src="' + this.mypic + '" width="240" height="320">' +
 	'<br><i>' + this.username + '</i>';
     let table =
 	'<table><tr>' +
 	'<td align="left">' + htmlPic + '</td>' +
 	'<td>' + this.readBasicsFile(this.basics) + '</td>' +
-	'</tr></table>';
+	'<td><p align="right">';
+
+    let repoStats = await this.getPinnedGhRepos();
+    repoStats.repos.forEach((repo) =>
+	table += '<a href="' + repo.url + '">' + repo.name + '</a>: ' +
+            repo.stargazers + ' <i class="fas fa-star"></i> ' +
+            repo.forks + ' <i class="fas fa-code-branch"></i><br>');
+    table += '</p></td></tr></table>';
     return table;
+};
+
+let query = `
+{
+  user(login: "anarcroth") {
+    pinnedItems(first: 6, types: REPOSITORY) {
+      totalCount
+      edges {
+        node {
+          ... on Repository {
+            name
+            stargazers {
+              totalCount
+            }
+            watchers {
+              totalCount
+            }
+            forks {
+              totalCount
+            }
+            homepageUrl
+            url
+          }
+        }
+      }
+    }
+  }
+}`;
+
+user.prototype.getPinnedGhRepos = function() {
+
+    let githubUrl = 'https://api.github.com/graphql';
+    let token = process.env.GH_GQL_KEY;
+    let oauth = {Authorization: 'bearer ' + token};
+
+    return axios.post(githubUrl, {query: query}, {headers: oauth})
+	.then((response) => {
+	    // GraphQL returns a 'data' object
+	    return new repos(response.data.data);
+	})
+	.catch((error) => {
+	    alert(error);
+	});
 };
 
 user.prototype.getGithub = function() {
