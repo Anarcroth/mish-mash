@@ -5,9 +5,6 @@
   "engines": {
     "node": "12.x"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
