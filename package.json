@@ -1,13 +1,13 @@
 {
-  "name": "@anarcroth/mish-mash",
+  "name": "mish-mash",
   "version": "1.0.0",
-  "description": "An Interactive CV",
+  "description": "An Interactive Personal Website",
+  "engines": {
+    "node": "12.x"
+  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
