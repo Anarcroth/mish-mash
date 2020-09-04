@@ -1,9 +1,12 @@
 {
-  "name": "mish-mash",
+  "name": "@anarcroth/mish-mash",
   "version": "1.0.1",
   "description": "An Interactive Personal Website",
   "engines": {
     "node": "12.x"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "main": "server.js",
   "scripts": {
