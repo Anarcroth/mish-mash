@@ -5,23 +5,16 @@ let repos = function(data) {
     this.parseData();
 };
 
-let repo = function(name, stargazers, forks, url) {
-    console.log(name + stargazers + forks + url);
-    this.name = name;
-    this.stargazers = stargazers;
-    this.forks = forks;
-    this.url = url;
-};
-
 repos.prototype.parseData = function() {
     this.data.user.pinnedItems.edges.forEach(e => {
-	let repo = e.node;
-	let stargazers = repo.stargazers.totalCount;
-	let forks = repo.forks.totalCount;
-	let url = repo.url;
-	console.log( stargazers + forks + url);
-	this.repos.push(new repo(repo.name, stargazers, forks, url));
+	let repo = {};
+	let r = e.node;
+	repo.name = r.name;
+	repo.stargazers = r.stargazers.totalCount;
+	repo.forks = r.forks.totalCount;
+	repo.url = r.url;
+	this.repos.push(repo);
     });
 };
 
-module.exports = repos, repo;
+module.exports = repos;

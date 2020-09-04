@@ -7,7 +7,7 @@ const path = require('path');
 const https = require('https');
 const axios = require('axios');
 
-const repos = require('./repos.js');
+const repos = require('./repos');
 
 let user = function() {
     this.dirs = [];
