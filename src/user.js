@@ -22,6 +22,8 @@ let user = function() {
 
     this.configPath = './.conf';
     this.contentsPath = './contents/';
+
+    this.query = './pinnedRepos.gql';
 };
 
 user.prototype.init = function() {
@@ -92,32 +94,10 @@ user.prototype.getTableInfo = async function() {
     return table;
 };
 
-let query = `
-{
-  user(login: "anarcroth") {
-    pinnedItems(first: 6, types: REPOSITORY) {
-      totalCount
-      edges {
-        node {
-          ... on Repository {
-            name
-            stargazers {
-              totalCount
-            }
-            watchers {
-              totalCount
-            }
-            forks {
-              totalCount
-            }
-            homepageUrl
-            url
-          }
-        }
-      }
-    }
-  }
-}`;
+user.prototype.loadQuery = function() {
+    let file = fs.readFileSync(this.query, 'utf-8');
+    return file.replace(/\{USER\}/g, this.github);
+};
 
 user.prototype.getPinnedGhRepos = function() {
 
@@ -125,7 +105,7 @@ user.prototype.getPinnedGhRepos = function() {
     let token = process.env.GH_GQL_KEY;
     let oauth = {Authorization: 'bearer ' + token};
 
-    return axios.post(githubUrl, {query: query}, {headers: oauth})
+    return axios.post(githubUrl, {query: this.loadQuery()}, {headers: oauth})
 	.then((response) => {
 	    // GraphQL returns a 'data' object
 	    return new repos(response.data.data);
