@@ -1,6 +1,6 @@
 {
   "name": "@anarcroth/mish-mash",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An Interactive Personal Website",
   "engines": {
     "node": "12.x"
