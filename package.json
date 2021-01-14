@@ -1,6 +1,6 @@
 {
   "name": "@anarcroth/mish-mash",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An Interactive Personal Website",
   "engines": {
     "node": "12.x"
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/Anarcroth/mish-mash#readme",
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "express": "^4.16.4",
     "socket.io": "^2.2.0"
   },
