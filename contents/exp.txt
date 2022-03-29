@@ -1,14 +1,19 @@
-<b>SAP, Sofia, Bulgaria — Summer Internship</b><br>
-2016-06-07 – 2016-08-18<br>
-Employer - Stoyan Vellev, SAP Bulgaria<br>
-Main activity – studying under working conditions and developing personalized projects in C++, set by the employer.<br>
-<br>
-<b>Documaster, Sofia, Bulgaria — Internship</b><br>
-2017-06-04 – 2017-09-01<br>
-Employer – Dimitar Ouzounov, Documaster<br>
-Main activity – Developed Natural Language Processing web application. A news portal for accessing processed news and information from various news sources.<br>
-<br>
-<b>Documaster, Sofia, Bulgaria — Internship</b><br>
-2018-05-16 – 2018-08-28<br>
-Employer – Dimitar Ouzounov, Documaster<br>
-Main activity – Work on internal products for automation of Database mappings. Automation of container setups. Desktop application development.<br>
+<b>Java Programmer</b> 2019-05 - present @ Documaster<br>
+Developing back-end software workflows in Java for internal and external integrations, creating document conversion and data flows.<br>
+Also part of infrastructure tooling - developing ansible plugins in python for automating configurations and workflow tests.
+<br><br>
+<b>Internship (Java)</b> 2018-06 - 2018-08 (2 mon.) @ Documaster<br>
+Worked on file-management desktop app in Java and JS.<br>
+Continued into developing command line tool in Java for automating DB mappings.<br>
+In addition - automated internal tooling for container setups in Bash and Python.
+<br><br>
+<b>Student Assistant</b> 2017-09 - 2019-05 (5 sem.) @ AUBG<br>
+Tutoring and giving additional lectures to students. Helping students with homework and preparations.<br>
+Part of student-body group for strengthening and helping the bond between faculty and students.
+<br><br>
+<b>R&D Internship</b> 2017-06 - 2017-09 (3 mon.) @ Documaster<br>
+Worked on a Machine Learning-based Media platform, including - extracting keywords, doing semantic analysis,<br>
+and creating automatic media summaries.
+<br><br>
+<b>Internship</b> 2016-06 - 2016-08 (2 mon.) @ SAP Labs<br>
+Studying under working and conditions developing personalized projects in C++. Creating Ray Tracing applications with SDL2.

@@ -108,16 +108,6 @@ function parseCommandHistory() {
     }
 }
 
-function showHideBooks(booksId) {
-    console.log(booksId);
-    let bDiv = document.getElementById(booksId);
-    if (bDiv.style.display === "none") {
-	bDiv.style.display = "block";
-    } else {
-	bDiv.style.display = "none";
-    }
-}
-
 // create an initial input
 addInput();
 

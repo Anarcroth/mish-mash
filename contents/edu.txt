@@ -1,12 +1,6 @@
-<b>American University in Bulgaria, BA</b> in Computer Science and Information Systems Major<br>
-2015-09-01 - 2019-05-18<br>
-An active student in the Computer Science community and a Student Assistant in Data Structures and C++ courses.<br>
+<b>American University in Bulgaria</b> (2015/2019)
 <br>
-Courses Taken:<br>
-Finite Mathematics, Linear Algebra, Calculus I<br>
-Calculus II, Discrete Structures, C++<br>
-Visual Basic, Java, Advanced JavaScript<br>
-Fundamental Data Structures, Database Systems, Analysis and Design of Information Systems<br>
-Introduction to UNIX, Computer Architecture, Software Engineering<br>
-Data Mining, Tackling Software with Domain Driven Design, Object-Oriented Programming<br>
-Mobile Computing, DevOps, Web Server Technologies, Computer Networks<br>
+<b>BA<b> in Computer Science - (Thesis) <a href="https://github.com/Anarcroth/process-scheduling-analysis"><i>Process Scheduling Algorithms: analysis and comparison</i></a>
+<br>
+<b>BA<b> in Information Systems Major - (Thesis) <a href="https://github.com/Anarcroth/jayVFS"><i>Unix-like Virtual File System on the web</i></a>
+<br>

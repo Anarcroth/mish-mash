@@ -39,7 +39,7 @@ a:hover {
     height: 100&;
 }
 
-textarea, input, input:focus, #booksButton {
+textarea, input, input:focus {
     outline: none;
     border: none;
     // This is a test size, must be made relative to the screen width
@@ -82,7 +82,7 @@ textarea, input, input:focus, #booksButton {
     background-color: #162030;
 }
 
-#books th, td {
+th, td {
     vertical-align: top;
     padding: 5px;
     text-align: left;
