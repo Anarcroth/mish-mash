@@ -1,7 +1,0 @@
-<i class="far fa-hand-point-right"></i> Active Linux user<br>
-<i class="far fa-hand-point-right"></i> Open Source enthusiast<br>
-<i class="far fa-hand-point-right"></i> Emacs enthusiast<br>
-<i class="far fa-hand-point-right"></i> Good handle on Git<br>
-<i class="far fa-hand-point-right"></i> Good handle on OOP languages<br>
-<i class="far fa-hand-point-right"></i> Basic handle on DB management<br>
-<i class="far fa-hand-point-right"></i> Likes to write in Lisp<br>
